@@ -46,7 +46,6 @@ class WebSiteCrawler:
             self.ads.extend(ads)
 
     async def start_parsing(self) -> None:
-
         time_start: float = time()
         tasks: list[Coroutine] = [self.parse_data(page) for page in range(1, settings.NUM_PAGES + 1)]
         await gather(*tasks)
